@@ -1,8 +1,8 @@
 import toVdom from './reshape-ast-to-vdom'
-import { browserDecode } from './serialize'
+import { decode } from './serialize'
 
 export function hydrateInitialState(encoded, components) {
-  return toVdom(components, browserDecode(encoded))
+  return toVdom(components, decode(encoded))
 }
 
-export { browserEncode as encode, browserDecode as decode } from './serialize'
+export { encode, decode } from './serialize'

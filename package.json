@@ -1,7 +1,6 @@
 {
   "name": "reshape-preact-components",
-  "description":
-    "server render preact components and use them like custom elements",
+  "description": "server render preact components and use them like custom elements",
   "version": "0.6.0",
   "author": "reshape",
   "ava": {
@@ -10,10 +9,12 @@
   "browser": "lib/browser.js",
   "bugs": "https://github.com/reshape/preact-components/issues",
   "dependencies": {
+    "buffer": "^5.0.8",
     "preact": "^8.1.0",
     "preact-render-to-string": "^3.6.2",
     "reshape-parser": "^0.2.1",
-    "reshape-plugin-util": "^0.2.1"
+    "reshape-plugin-util": "^0.2.1",
+    "utf8": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
@@ -48,11 +49,9 @@
   "main": "lib",
   "repository": "reshape/preact-components",
   "scripts": {
-    "build":
-      "rm -rf lib && mkdir lib && cp src/index.js lib && cp src/serialize.js lib && cp src/reshape-ast-to-vdom.js lib && rollup -c rollup.browser.js && rollup -c rollup.ast-vdom.js",
+    "build": "rm -rf lib && mkdir lib && cp src/index.js lib && cp src/serialize.js lib && cp src/reshape-ast-to-vdom.js lib && rollup -c rollup.browser.js && rollup -c rollup.ast-vdom.js",
     "codecov": "nyc report -r lcovonly && codecov",
-    "coverage":
-      "nyc ava && nyc report --reporter=html && open ./coverage/index.html",
+    "coverage": "nyc ava && nyc report --reporter=html && open ./coverage/index.html",
     "lint": "standard | snazzy",
     "test": "npm run build && nyc ava",
     "version": "npm run build"
